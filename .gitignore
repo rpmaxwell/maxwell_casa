@@ -1,0 +1,8 @@
+*.db
+.DS_Store
+venv
+env
+.env
+logs.txt
+startup.sh
+__pycache__

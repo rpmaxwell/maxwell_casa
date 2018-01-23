@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+html {
+  background: #000 url(https://i.imgur.com/4Vs44ZW.jpg) no-repeat fixed center center;
+  background-size: cover;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+.container {
+  width: 720px;
+  height: 660px;
+  margin: 50px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,.6);
+}
+
+.tile {
+  width: 360px; 
+  height: 330px;
+  text-align: center;
+  float: left;
+}
+
+.tile {
+  outline: 7px solid rgba(255,255,255,0);
+  transition: outline .5s;
+  position: relative; /* outline */
+}
+
+.tile:hover {
+  opacity: .8;
+  xoutline-color: rgba(255,255,255,.4);
+  transition: outline .5s;  
+  z-index: 3000 !important; /* outline */
+}
+
+.tile > a {
+  width: inherit;
+  height: inherit;
+  display: block;
+  color: #fff;
+  text-decoration: none !important;
+}
+
+#sheep { background-image: url("../img/sheep_still.png"); }
+#sheep:hover {
+   background-image: url("../img/sheep.gif"); }
+
+
+#library { background-image: url("../img/library_still.png"); }
+#library:hover {
+   background-image: url("../img/library.gif"); }
+
+#light_bulb { background-image: url("../img/light_bulb_still.png"); }
+#light_bulb:hover {
+   background-image: url("../img/light_bulb.gif"); }
+
+#board_game { background-image: url("../img/board_game_still.png"); }
+#board_game:hover {
+   background-image: url("../img/board_game.gif"); }
+
+
+.mint { background-color: #2ecc71; }
+.purple { background-color: #7658f8; }
+
+.yellow { background-color: #eac14d; }
+.red { background-color: #e6567a; }
+.pink { background-color: #cb70d7; }
+
+.background-image {
+  width: 360px;
+  height: 330px;
+}
+
+.title {
+  display: block;
+}
+
+.container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

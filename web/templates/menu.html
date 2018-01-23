@@ -1,0 +1,34 @@
+<body>
+<link href="../static/css/menu.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript">
+  $('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+</script>
+<div class="container">
+  <div class="tile" id="sheep">
+    <a href="{{ url_for('sheep') }}">
+      <span class="title">Sheep</span>
+    </a>
+  </div>
+
+  <div class="tile" id="library">
+    <a href="{{ url_for('login') }}">
+      <span class="title">Library</span>
+    </a>
+  </div>
+
+
+  <div class="tile" id="board_game">
+    <a href="{{ url_for('quiz') }}">
+      <span class="title">Games</span>
+    </a>
+  </div>
+
+  <div class="tile" id="light_bulb">
+    <a href="{{ url_for('login') }}">
+      <span class="title">Lights</span>
+    </a>
+  </div>
+</div>
+</body>

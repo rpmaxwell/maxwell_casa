@@ -1,0 +1,23 @@
+<body>
+<link href="../static/css/lights.css" rel="stylesheet">
+{% if payload['status']=='1' %}
+<h>lamp is on!</h>
+<div class="form">
+	<form action="/lights" method="post">
+		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    	<button name="lamp_toggle" type="submit">turn lamp off!</button>
+	</form>
+</div>
+{% elif payload['status']=='0' %}
+<h>lamp is off!</h>
+<div class="form">
+	<form action="/lights" method="post">
+		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    	<button name="lamp_toggle" type="submit">turn lamp on!</button>
+	</form>
+</div>
+{% else %}
+	<p>who tf knows? :/</p>
+{% endif %}
+</div>
+</body>
