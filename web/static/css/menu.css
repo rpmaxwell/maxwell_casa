@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 html {
   background: #000 url(https://i.imgur.com/4Vs44ZW.jpg) no-repeat fixed center center;
@@ -6,9 +6,10 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  color: #fff;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -47,29 +48,18 @@ body {
 }
 
 #sheep { background-image: url("../img/sheep_still.png"); }
-#sheep:hover {
-   background-image: url("../img/sheep.gif"); }
+#sheep:hover { background-image: url("../img/sheep.gif"); }
 
 
 #library { background-image: url("../img/library_still.png"); }
-#library:hover {
-   background-image: url("../img/library.gif"); }
+#library:hover { background-image: url("../img/library.gif"); }
 
 #light_bulb { background-image: url("../img/light_bulb_still.png"); }
-#light_bulb:hover {
-   background-image: url("../img/light_bulb.gif"); }
+#light_bulb:hover { background-image: url("../img/light_bulb.gif"); }
 
 #board_game { background-image: url("../img/board_game_still.png"); }
-#board_game:hover {
-   background-image: url("../img/board_game.gif"); }
+#board_game:hover { background-image: url("../img/board_game.gif"); }
 
-
-.mint { background-color: #2ecc71; }
-.purple { background-color: #7658f8; }
-
-.yellow { background-color: #eac14d; }
-.red { background-color: #e6567a; }
-.pink { background-color: #cb70d7; }
 
 .background-image {
   width: 360px;

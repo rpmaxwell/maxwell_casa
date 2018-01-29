@@ -31,7 +31,6 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String, nullable=False)
     registration_start = db.Column(db.DateTime, nullable=True)
  
-    #----------------------------------------------------------------------
     def __init__(self, username, email):
         """"""
         self.username = username
@@ -60,16 +59,16 @@ class LoginForm(Form):
     password = PasswordField('Password', [validators.DataRequired()])
 
 
-# class Register(db.Model):
-#     """"""
-#     __tablename__ = "users"
- 
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.String, nullable=False)
-#     password = db.Column(db.String, nullable=False)
- 
-#     #----------------------------------------------------------------------
-#     def __init__(self, username, password):
-#         """"""
-#         self.username = username
-#         self.password = password
+class FlockRoster(db.Model):
+    __tablename__ = 'flock_roster'
+
+    id = db.Column(db.Integer, primary_key=True)
+    tag_number = db.Column(db.String)
+    given_name = db.Column(db.String)
+    acquisition_source = db.Column(db.String)
+    date_acquired = db.Column(db.DateTime)
+    is_ewe = db.Column(db.Boolean)
+    is_current = db.Column(db.Boolean)
+    disposition_date = db.Column(db.DateTime)
+    fate = db.Column(db.String)
+    picture = db.Column(db.String)

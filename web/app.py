@@ -95,10 +95,7 @@ def secret():
 def logout():
     logout_user()
     return redirect(url_for('menu'))
-
-@app.route('/sheep')
-def sheep():
-    return render_template('sheep.html')
+    
 
 
 @app.route('/lights', methods=['GET', 'POST'])
@@ -113,10 +110,10 @@ def lights():
     return render_template('lights.html', payload={'status': lamp_status})
         
         
-
-
-# @app.route('/light_status/', methods=['GET', 'POST'])
-# def get_light_status():
+@app.route('/sheep')
+def sheep():
+    rows = FlockRoster.query.filter(FlockRoster.is_current.is_(True)).all()
+    return render_template('sheep.html', rows=rows)
 
 
 

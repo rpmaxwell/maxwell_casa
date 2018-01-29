@@ -26,7 +26,6 @@ div.table-title {
    text-transform:uppercase;
 }
 
-
 /*** Table Styles **/
 
 .table-fill {
@@ -140,4 +139,13 @@ td.text-center {
 
 td.text-right {
   text-align: right;
+}
+
+.dead {
+  bgcolor:#000000 !important;
+}
+
+.sheep-pic {
+  height: 80px;
+  width: 120px;
 }
