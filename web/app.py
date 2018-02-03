@@ -103,7 +103,11 @@ def lights():
     # if not current_user.is_authenticated:
     #     return redirect(url_for('login'))
     if request.method == 'GET':
-        lamp_status = requests.get('http://192.168.1.195:5000/lamp_status').text
+        r = requests.get('http://192.168.1.195:5000/lamp_status')
+        if r.status_code == 200:
+            lamp_status = r.text
+        else:
+            return render_template('no_lights.html')
     elif request.method == 'POST':
         requests.get('http://192.168.1.195:5000/api')
         lamp_status = requests.get('http://192.168.1.195:5000/lamp_status').text

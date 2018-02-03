@@ -1,11 +1,14 @@
-<body>
+{% extends "_base.html" %}
+{% block content %}
 <link href="../static/css/account.css" rel="stylesheet">
 <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript">
 	$('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 </script>
-
+{% if session['logged_in'] %}
+	<p>You're logged in already!</p>
+{% else %}
 {% from "_formhelpers.html" import render_field %}
 <h1>howdy!</h1>
 
@@ -23,4 +26,5 @@
   </div>
   	<p class="message">Already registered? <a href="{{ url_for('login') }}">Sign In</a></p>
 </div>
-</body>
+{% endif %}
+{% endblock %}

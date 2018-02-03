@@ -1,7 +1,8 @@
-<body>
+{% extends "_base.html" %}
+{% block content %}
 <link href="../static/css/account.css" rel="stylesheet">
 <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript">
-	$('.message a').click(function(){
+  $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 </script>
@@ -10,11 +11,11 @@
 <p>You're logged in already!</p>
 {% else %}
 
-	
+  
 <div class="login-page">
   <div class="form">
     <form action="/login" method="POST" class="login-form">
-    	{{ form.csrf_token }}
+      {{ form.csrf_token }}
       <input type="text" placeholder="username"/>
       <input type="password" placeholder="password"/>
       <button>login</button>
@@ -23,11 +24,4 @@
       <p class="message">Not registered? <a href="{{ url_for('register') }}">Create an account</a></p>
 </div>
 {% endif %}
-</body>
-
-
-
-
-
-
-
+{% endblock %}
