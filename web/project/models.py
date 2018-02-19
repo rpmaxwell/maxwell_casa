@@ -1,11 +1,8 @@
-# models.py
-
 from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
-from app import db
-
+from project import db
 
 
 class Post(db.Model):
@@ -26,16 +23,27 @@ class User(UserMixin, db.Model):
     __tablename__ = "registered_user"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, nullable=False)
+    first_name = db.Column(db.String, nullable=False)
+    last_name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False, unique=True)
     password_hash = db.Column(db.String, nullable=False)
-    email = db.Column(db.String, nullable=False)
-    registration_start = db.Column(db.DateTime, nullable=True)
+    authenticated = db.Column(db.Boolean, default=False)
+    email_confirmed = db.Column(db.Boolean, nullable=True, default=False)
+    email_confirmed_on = db.Column(db.DateTime, nullable=True)
+    registered_on = db.Column(db.DateTime, nullable=True)
+    last_logged_in = db.Column(db.DateTime, nullable=True)
+    current_logged_in = db.Column(db.DateTime, nullable=True)
+    role = db.Column(db.String, default='user')
+
  
-    def __init__(self, username, email):
+    def __init__(self, first_name, last_name, email, role='user'):
         """"""
-        self.username = username
         self.email = email
-        self.date_posted = datetime.datetime.now()
+        self.first_name = first_name
+        self.last_name = last_name
+        self.registered_on = datetime.datetime.now()
+        self.role = role
+        self.authenticated = False
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -43,23 +51,14 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-
-class RegistrationForm(Form):
-    username = StringField('Username', [validators.Length(min=4, max=25)], render_kw={"placeholder": "username"})
-    email = StringField('Email Address', [validators.Length(min=6, max=35)], render_kw={"placeholder": "email"})
-    password = PasswordField('New Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords must match')
-    ], render_kw={"placeholder": "password"})
-    confirm = PasswordField('Repeat Password', render_kw={"placeholder": "confirm password"})
-
-
-class LoginForm(Form):
-    username = StringField('Username', [validators.Length(min=4, max=25)])
-    password = PasswordField('Password', [validators.DataRequired()])
+    @property
+    def is_authenticated(self):
+        """Return True if the user is authenticated."""
+        return self.authenticated
 
 
 class FlockRoster(db.Model):
+    
     __tablename__ = 'flock_roster'
 
     id = db.Column(db.Integer, primary_key=True)

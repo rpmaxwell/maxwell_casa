@@ -1,10 +1,5 @@
 <body>
-<link href="../static/css/sheep.css" rel="stylesheet">
-<script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript">
-	$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
-</script>
+<link href="{{ url_for('static', filename='css/sheep.css') }}" rel="stylesheet">
 <h1>Check out some sheep!</h1>
 
 <div class="table-title">

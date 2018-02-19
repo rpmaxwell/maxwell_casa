@@ -1,8 +1,8 @@
-<link href="../static/css/account.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/account.css') }}" rel="stylesheet">
 {% macro render_field(field) %}
   {{ field(**kwargs)|safe }}
   {% if field.errors %}
-    <dd class=errors>
+    <dd class=errors style='color: #111111'>
     {% for error in field.errors %}
       <ul>{{ error }}</ul>
     {% endfor %}

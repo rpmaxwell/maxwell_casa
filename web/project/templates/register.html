@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+{% block content %}
+<link href="{{ url_for('static', filename='css/account.css') }}" rel="stylesheet">
+{% if session['logged_in'] %}
+	<p>You're logged in already!</p>
+{% else %}
+{% from "_formhelpers.html" import render_field %}
+<h1>howdy!</h1>
+
+<div class="login-page">
+  <div class="form">
+    <form action="/register" method="POST" class="register-form">
+    		{{ form.csrf_token }}
+        {{ render_field(form.first_name) }}
+        {{ render_field(form.last_name) }}
+	    	{{ render_field(form.email) }}
+	    	{{ render_field(form.password) }}
+	    	{{ render_field(form.confirm) }}
+  		<button>Register</button>
+	</form>
+  </div>
+  	<p class="message">Already registered? <a href="{{ url_for('users.login') }}">Sign In</a></p>
+</div>
+{% endif %}
+{% endblock %}

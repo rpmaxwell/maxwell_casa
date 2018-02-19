@@ -3,15 +3,15 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import json
 import os
-from app import db
-from models import FlockRoster
+from project import db
+from project.models import FlockRoster
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def connect_to_gsheets():
     scope = ['https://spreadsheets.google.com/feeds']
-    cred_file = os.path.join(APP_ROOT, '.gsheet_creds.json')
+    cred_file = os.path.join(APP_ROOT, '.gsheets_creds.json')
     credentials = ServiceAccountCredentials.from_json_keyfile_name(cred_file, scope)
     return credentials
 

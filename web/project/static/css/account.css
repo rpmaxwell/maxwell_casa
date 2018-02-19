@@ -19,6 +19,7 @@
 
 .form input {
   font-family: "Roboto", sans-serif;
+  color: #111111;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -102,4 +103,12 @@
 
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+.errors {
+  color: #111111;
+}
+
+h1 {
+  color: #111111;
 }

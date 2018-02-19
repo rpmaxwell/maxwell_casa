@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>maxwell.casa</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/sheep.ico') }}">
+    <!-- meta -->
+    <meta name="description" content="all the latest family llama drama">
+    <meta name="author" content="rpmaxwell">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- styles -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/_base.css') }}" rel="stylesheet">
+<!--     <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    {% block css %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+   {% endif %}
+{% endwith %}
+  </head>
+  <body>
+<!--     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="navbar-brand col-md-10 col-md-pull-8">
+        maxwell.casa
+      </div>
+        <div class="navbar-brand col-md-1 col-md-push-1">
+          {% if current_user.is_authenticated %}
+            {{ current_user.first_name }}
+          {% else %}
+            <a href="{{ url_for('users.login') }}">Login</a>
+          {% endif %}
+        </div>
+    </nav> -->
+    {% block content %}{% endblock %}
+  </body>
+</html>
+
+

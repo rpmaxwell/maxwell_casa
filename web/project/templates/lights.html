@@ -1,5 +1,5 @@
 <body>
-<link href="../static/css/lights.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/lights.css') }}" rel="stylesheet">
 {% if payload['status']=='1' %}
 <h>lamp is on!</h>
 <div class="form">
