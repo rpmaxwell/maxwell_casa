@@ -1,0 +1,60 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="{{ url_for('static', filename='images/sheep.ico') }}">
+
+    <title>Quizbowl</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/quizbowl.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+</head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="navbar-brand col-md-10 col-md-pull-8">maxwell.casa</div>
+        <div class="navbar-brand col-md-1 col-md-push-1">quizbowl</div>
+      </div>
+    </nav>
+
+<div class="container-full" id='top-container'>
+      <div class="row top-panel">
+        <div class="col-md-6" id="game-pen">
+          <div class="fue-text centered-text">Add players and teams to start the game!</div>
+      </div>
+        <div class="col-md-6" id="player-pen">
+          <div class="fue-text centered-text">Buzz in to create players!</div>
+        </div>
+      </div>
+          <div class="row" id="team-pen">
+              <div class="fue-text centered-text">click to add teams!</div>
+          </div>
+      </div>
+ </div>
+
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+  <script>
+    var gameActive = false;
+    var buzzerActive = true;
+  </script>
+  <script src="{{ url_for('static', filename='js/quizbowl/players.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/quizbowl/teams.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/quizbowl/game.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/quizbowl/buzz.js') }}"></script>
+<!--   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'>
+
+  </script> -->
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  
+  </body>

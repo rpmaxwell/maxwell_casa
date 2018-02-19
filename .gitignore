@@ -1,0 +1,10 @@
+*.db
+.DS_Store
+venv
+logs.txt
+startup.sh
+__pycache__
+.gsheets_creds.json
+gsheets_creds.json
+.env
+env

@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+{% block content %}
+<link href="{{ url_for('static', filename='css/account.css') }}" rel="stylesheet">
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript">
+  $('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+</script>
+
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+{% from "_formhelpers.html" import render_field %}
+  
+<div class="login-page">
+  <div class="form">
+    <form action="/login" method="POST" class="login-form">
+      {{ form.csrf_token }}
+      {{ render_field(form.email) }}
+      {{ render_field(form.password) }}
+      <button>login</button>
+    </form>
+  </div>
+      <p class="message">Not registered? <a href="{{ url_for('users.register') }}">Create an account</a></p>
+</div>
+{% endif %}
+{% endblock %}

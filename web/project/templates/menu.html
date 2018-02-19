@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+{% block content %}
+<link href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+  <div class="row">
+    <div class="col-xs-12 menu-item">
+      <a href="{{ url_for('sheep.sheep_cam') }}">
+        <div class="title">Sheep</div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 menu-item">
+      <a href="{{ url_for('users.register') }}">
+        <div class="title">Library</div>
+       </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 menu-item">
+      <a href="{{ url_for('quiz') }}">
+        <div class="title">Games</div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 menu-item">
+       <a href="{{ url_for('home_automation.lights') }}">
+          <div class="title">Lights</div>
+       </a>
+    </div>
+  </div>
+{% endblock %}

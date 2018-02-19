@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% block content %}
+<link href="{{ url_for('static', filename='css/account.css') }}" rel="stylesheet">
+
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+	
+<div class="login-page">
+  <div class="form">
+    <span style="color: #111111 !important;">you can control appliances with a raspberry pi here if you have one connected</span>
+  </div>
+      <p class="message">Not registered? <a href="{{ url_for('users.register') }}">Create an account</a></p>
+</div>
+{% endif %}
+{% endblock %}

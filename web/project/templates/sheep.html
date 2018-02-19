@@ -1,0 +1,43 @@
+<body>
+<link href="{{ url_for('static', filename='css/sheep.css') }}" rel="stylesheet">
+<h1>Check out some sheep!</h1>
+
+<div class="table-title">
+<h3>The Flock</h3>
+</div>
+
+<table class="table-fill">
+	<thead>
+		<tr>
+		<th class="text-left">Blurry, Uncropped Photo</th>
+		<th class="text-left">Tag Number</th>
+		<th class="text-left">Given Name</th>
+		<th class="text-left">Acquisition Type</th>
+		<th class="text-left">Date Acquired</th>
+		<th class="text-left">Sex</th>
+		</tr>
+	</thead>
+	<tbody class="table-hover">
+	  {% for row in rows %}
+	  <tr>
+	  		<td class="text-left">
+	  			{% if row.picture is none %}
+	  				<img class='sheep-pic' src="../static/img/sheep.ico", alt="">
+	  			{% else %}
+	  				<img class='sheep-pic' src="{{ row.picture }}", alt="">
+	  			{% endif %}
+	  		</td>
+	        <td class="text-left">{{ row.tag_number }}</td>
+	        <td class="text-left">{{ row.given_name }}</td>
+	        <td class="text-left">{{ row.acquisition_source }}</td>
+	        <td class="text-left">{{ row.date_acquired.strftime('%Y-%b-%d') }}</td>
+	        {% if row.is_ewe %}
+	        	<td class="text-left">Ewe</td>
+	        {% else %}
+	        	<td class="text-left">Ram</td>
+	        {% endif %}
+	    </tr>
+	  {% endfor %}
+	</tbody>
+</table>
+</body>
