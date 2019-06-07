@@ -72,7 +72,7 @@ function buzzEvent(event) {
         console.log('no buzzing allowed!')
         return false
     }
-    playerId = event.code
+    playerId = event.player_id
     var playerExists = sessionStorage.getItem(playerId) !== null
     if (playerExists&&window.gameActive) {
             answerEvent(playerId)
@@ -86,12 +86,30 @@ function buzzEvent(event) {
     }
 
     else if (!playerExists&&!window.gameActive) {
-            playerEvent(event.code)
+            playerEvent(event.player_id)
     }
     else {
         return false
     }
 };
+
+
+// var script = document.createElement('script');
+// script.src = '//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js';
+// script.type = 'text/javascript';
+// document.getElementsByTagName('head')[0].appendChild(script);
+
+
+// namespace='/device_reading'
+// var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+
+// socket.on('buzz', function(event) {
+//     buzzEvent(event)
+//     console.log('we have a buzz')
+//     console.log(event)
+//     socket.send('buzz_received', 'buzz received from someone')
+// })
 
 document.addEventListener("keypress",  buzzEvent)
 
