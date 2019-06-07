@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+{% block content %}
+<link href="{{ url_for('static', filename='css/garden_dashboard.css') }}" rel="stylesheet">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/es-us.js"></script>
+<div class="outer">
+    <div id="container-temp" class="container"></div>
+    <div id="container-humid" class="container"></div>
+    <div id="container-light-intensity" class="container"></div>
+    <div id="container-light" class="container">
+        {% if device_data['lamp']==1 %}
+            <script type="text/javascript">
+                document.getElementById("container-light").style.background = '#FFFF88';
+                document.getElementById("container-light").style.color = '#000000';
+                $('#container-light').text('Light is on!').html();
+                console.log('yes')
+            </script>
+        {% elif device_data['lamp']==0 %}
+            <script type="text/javascript">
+                document.getElementById("container-light").style.background = '#003366';
+                document.getElementById("container-light").style.color = '#FFFFFF';
+                $('#container-light').text('light is off').html();
+                console.log('no')
+            </script>
+        {% else %}
+            <script type="text/javascript">
+                $('#container-light').text('¯\\_(ツ)_/¯').html();
+                console.log(device_data)
+            </script>
+        {% endif %}
+    </div>
+</div>
+ <script type="text/javascript">
+    function parseISOString(s) {
+    var b = s.split(/\D+/);
+    return new Date(Date(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
+    }
+    function timeStamp(dt) {
+        dt = parseISOString(dt)
+        var date = [ dt.getFullYear(), dt.getMonth() + 1, dt.getDate() ];
+        var time = [ dt.getHours(), dt.getMinutes(), dt.getSeconds() ];
+        for ( var i = 1; i < 3; i++ ) {
+            if ( time[i] < 10 ) {
+                time[i] = "0" + time[i];
+            }
+        };
+        for ( var i = 1; i < 3; i++ ) {
+            if ( date[i] < 10 ) {
+                date[i] = "0" + date[i];
+            }
+        };
+        return date.join("-") + " " + time.join(":");
+    }
+    var startingTemp = {{ sensor_data.temperature }};
+    var startingHumidity = {{ sensor_data.humidity }};
+    var startingLightIntensity = {{ sensor_data.light_intensity }}
+    var startingTemperatureDt = timeStamp('{{ sensor_data.temperature_dt }}');
+    var startingHumidityDt = timeStamp('{{ sensor_data.humidity_dt }}');
+    var startingLampDt = timeStamp('{{ device_data.lamp_dt }}');
+    var startingLightIntensityDt = timeStamp('{{ sensor_data.light_intensity_dt }}');
+</script>
+<script src="{{ url_for('static', filename='js/gauge_chart.js') }}"></script>
+{% endblock %}

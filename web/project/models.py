@@ -71,3 +71,15 @@ class FlockRoster(db.Model):
     disposition_date = db.Column(db.DateTime)
     fate = db.Column(db.String)
     picture = db.Column(db.String)
+
+
+class HomeLibrary(db.Model):
+
+    __tablename__ = 'home_library'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    pages = db.Column(db.Integer)
+    isbn = db.Column(db.String)
+    ddc = db.Column(db.String)
+    picture = db.Column(db.String)

@@ -1,0 +1,28 @@
+<body>
+<link href="{{ url_for('static', filename='css/sheep.css') }}" rel="stylesheet">
+<h1>Check out some books!</h1>
+<table class="table-fill">
+	<thead>
+		<tr>
+		<th class="text-left">Photo</th>
+		<th class="text-left">Title</th>
+		<th class="text-left">pages</th>
+		<th class="text-left">ISBN</th>
+		<th class="text-left">dewey decimal identifier</th>
+		</tr>
+	</thead>
+	<tbody class="table-hover">
+	  {% for row in rows %}
+	  <tr>
+	  		<td class="text-left">
+	  			<img class='sheep-pic' src="{{ row.picture }}", alt="">
+	  		</td>
+	        <td class="text-left">{{ row.title }}</td>
+	        <td class="text-left">{{ row.pages }}</td>
+	        <td class="text-left">{{ row.isbn }}</td>
+	        <td class="text-left">{{ row.ddc }}</td>
+	    </tr>
+	  {% endfor %}
+	</tbody>
+</table>
+</body>

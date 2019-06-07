@@ -1,0 +1,33 @@
+/*.outer {
+	width: 600px;
+	height: 200px;
+	margin: 0 auto;
+}
+*/.container {
+	border:1px solid black;
+	margin: 0 auto;
+
+}
+#container-light {
+	text-align: center;
+	vertical-align: middle;
+	line-height: 90px;
+	font-size: 40px;
+
+}
+/*.highcharts-yaxis-grid .highcharts-grid-line {
+	display: none;
+}
+
+@media (max-width: 800px) {
+	.outer {
+		width: 100%;
+		height: 400px;
+	}
+	.container {
+		width: 500px;
+		float: none;
+		margin: 0 auto;
+	}
+
+}*/
